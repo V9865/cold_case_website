@@ -1,0 +1,55 @@
+/* ── Mute Button — fixed bottom-right ─────────────────────────────── */
+
+.mute-btn-wrapper {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+}
+
+.mute-btn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(17, 24, 39, 0.8);
+  border: 1px solid #2D3748;
+  border-radius: 50%;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: all 200ms ease;
+}
+
+.mute-btn:hover {
+  background: #1E293B;
+  border-color: color-mix(in srgb, var(--accent, #DC2626) 40%, transparent);
+}
+
+.mute-btn:active {
+  transform: scale(0.95);
+}
+
+/* ── Tooltip ─────────────────────────────────────────────────────── */
+
+.mute-btn__tooltip {
+  position: absolute;
+  bottom: 56px;
+  right: 0;
+  background: #1E293B;
+  color: #94A3B8;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease;
+}
+
+.group:hover .mute-btn__tooltip,
+.mute-btn:hover .mute-btn__tooltip {
+  opacity: 1;
+}

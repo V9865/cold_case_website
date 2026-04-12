@@ -1,0 +1,40 @@
+GREG HOLT — PERSONNEL AND INVESTIGATION RECORDS
+
+Full Name: Gregory "Greg" Holt
+Age: 55
+Role: Head of Security, Caesar's Palace
+Employment Start: 11 years ago (previously LVMPD for 18 years)
+Height: 6'1"
+Build: Heavy / stocky
+
+Greg Holt manages a team of 45 security personnel across all Caesar's Palace properties.
+He has master keycard access and administrative control over the keycard management system.
+
+KEYCARD ACCESS LOG — GREG HOLT (Night of Incident):
+- 11:45 PM — Security office entrance (Level 3)
+- No further scans until 6:20 AM — Security office exit
+
+Greg was on the overnight shift and claims he was monitoring camera feeds from the
+security office the entire night. The security office has no camera coverage of its
+own interior.
+
+VAULT CAMERA ANOMALY:
+The vault corridor camera (CAM-V1) transmitted normally until 1:25 AM, when the
+feed switched to a static image. The NVR system logged this as a "signal interrupt."
+The feed resumed normally at 2:05 AM. Greg's shift log does not mention this interruption.
+
+Security protocol requires any camera signal interrupt lasting more than 5 minutes
+to be logged as an incident and investigated immediately. Greg failed to do this.
+
+TOMMY CHEN'S REQUEST:
+Greg confirms that Tommy Chen approached him two weeks before his death requesting
+keycard access logs for Vault B. Greg pulled the report, which showed three uses
+of the deactivated Employee ID #2847 in the previous month. Greg did not flag this
+to IT or management, stating he assumed it was "a database ghost — happens sometimes
+with old accounts."
+
+Greg's former partner at LVMPD, Detective Frank Navarro, was fired in 2019 after
+Tommy Chen provided testimony about evidence tampering in an unrelated case. Greg
+and Navarro remain close friends.
+
+Greg has no unexplained financial assets. His bank records are consistent with his salary.

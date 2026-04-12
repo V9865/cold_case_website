@@ -1,0 +1,32 @@
+MARCO BELLINI — PERSONNEL AND INVESTIGATION RECORDS
+
+Full Name: Marco Bellini
+Age: 44
+Role: Technical Director, Bellagio Entertainment Division
+Employment Start: 7 years ago
+Parking Space: P2-104 (Backstage Garage)
+
+Marco Bellini oversees all technical operations for the Bellagio fountain shows.
+He holds administrator-level access to the backstage security camera NVR system,
+the HVAC control panels, and the fountain control room emergency lock system.
+
+Marco's keycard log shows the following activity on the night of the incident:
+- 7:15 PM — Backstage entrance
+- 9:28 PM — Backstage exit via parking garage door (claims he went to smoke)
+- No further scans until 11:52 PM — Backstage entrance
+
+However, the backstage parking garage exit does NOT require a keycard scan to re-enter.
+The pedestrian door from the garage back into the backstage area is an unsecured fire exit.
+This means Marco could have re-entered the backstage area between 9:28 PM and 11:52 PM
+without leaving a keycard trace.
+
+Multiple crew members have noted Marco and Sofia had a close personal relationship.
+HR records show Sofia filed a preliminary workplace complaint two weeks before her death,
+but she withdrew it the following day. The complaint referenced "unwanted personal contact."
+
+The NVR server logs show the backstage corridor camera (CAM-B7) and rehearsal entrance
+camera (CAM-B2) had their recordings deleted for the period 10:00 PM to 11:45 PM.
+The deletion was executed from an account with admin privileges. Only two people have
+admin access: Marco Bellini and the IT manager (who was on vacation in Reno that week).
+
+Marco has a prior restraining order from a relationship in 2019 (Los Angeles County).

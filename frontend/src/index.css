@@ -1,0 +1,146 @@
+/* ── Cold Case Vegas — Design System Foundation ────────────────────── */
+
+:root {
+  /* ── Primary Surfaces ── */
+  --color-void:         #0A0E1A;
+  --color-deep-slate:   #111827;
+  --color-elevated:     #1B2938;
+  --color-border:       #2D3748;
+
+  /* ── Accent Colours ── */
+  --color-crimson:      #DC2626;
+  --color-crime-red:    #7F1D1D;
+  --color-gold:         #D97706;
+  --color-amber:        #F59E0B;
+
+  /* ── Status Colours ── */
+  --color-calm:         #10B981;
+  --color-defensive:    #F59E0B;
+  --color-breaking:     #DC2626;
+
+  /* ── Text Colours ── */
+  --text-primary:       #F1F5F9;
+  --text-secondary:     #94A3B8;
+  --text-tertiary:      #475569;
+  --text-gold:          #D97706;
+
+  /* ── Typography ── */
+  --font-body:          'Space Grotesk', sans-serif;
+  --font-mono:          'Space Mono', monospace;
+
+  /* ── Type Scale ── */
+  --text-xs:   11px;
+  --text-sm:   13px;
+  --text-base: 16px;
+  --text-lg:   18px;
+  --text-2xl:  24px;
+  --text-4xl:  36px;
+  --text-6xl:  60px;
+
+  /* ── Spacing (4px grid) ── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-6:  24px;
+  --space-8:  32px;
+
+  /* ── Border Radius ── */
+  --radius-none: 0px;
+  --radius-lg:   8px;
+  --radius-xl:   12px;
+  --radius-full: 9999px;
+
+  /* ── Global defaults ── */
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.5;
+  color: var(--text-primary);
+  background: var(--color-void);
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--color-void);
+}
+
+h1,
+h2 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--text-4xl);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--text-2xl);
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: 1.4;
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-deep-slate);
+  border-radius: var(--radius-lg);
+  color: var(--text-primary);
+}
+
+/* ── Scrollbar defaults ──────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+/* ── Per-case accent glow colours ────────────────────────────────── */
+
+[data-case='1'] { --accent-glow: rgba(255, 45, 85, 0.6); }
+[data-case='2'] { --accent-glow: rgba(0, 212, 255, 0.6); }
+[data-case='3'] { --accent-glow: rgba(124, 58, 237, 0.6); }
+
+/* ── Neon pulse animation (active card selection) ────────────────── */
+
+@keyframes neonPulse {
+  0%, 100% { box-shadow: 0 0 4px 0px var(--accent-glow, #FF2D55); }
+  50%      { box-shadow: 0 0 14px 2px var(--accent-glow, #FF2D55); }
+}
+
+.card-active {
+  animation: neonPulse 2.5s ease-in-out infinite;
+  border: 1px solid var(--accent);
+  border-radius: 0.75rem;
+}
+

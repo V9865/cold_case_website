@@ -1,0 +1,345 @@
+/* ── CaseSelection — full-screen case picker ──────────────────────── */
+
+.case-selection {
+  min-height: 100vh;
+  background: var(--color-void);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Hero Center Section ───────────────────────────────────────────── */
+
+.case-selection__hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 32px;
+  text-align: center;
+}
+
+/* ── Eyebrow ───────────────────────────────────────────────────────── */
+
+.case-selection__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: color-mix(in srgb, var(--accent, var(--color-crimson)) 60%, transparent);
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  margin-bottom: 20px;
+}
+
+/* ── Hero Title Wrapper ────────────────────────────────────────────── */
+
+.case-selection__hero-title {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Accent Rule between title lines ───────────────────────────────── */
+
+.case-selection__hero-rule {
+  width: 192px;
+  height: 1px;
+  margin: 8px auto;
+  background: color-mix(in srgb, var(--accent, var(--color-crimson)) 30%, transparent);
+}
+
+/* ── Tagline ───────────────────────────────────────────────────────── */
+
+.case-selection__tagline {
+  margin-top: 24px;
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: #64748B;
+  line-height: 1.7;
+}
+
+/* ── Bottom Stats Decoration ───────────────────────────────────────── */
+
+.case-selection__hero-stats {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.case-selection__hero-dot {
+  font-size: 16px;
+  line-height: 1;
+  opacity: 0.5;
+}
+
+/* ── Cards Grid ────────────────────────────────────────────────────── */
+
+.case-selection__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  padding: var(--space-2) 48px 48px;
+  flex: 1;
+  align-items: stretch;
+}
+
+/* ── Individual Case Card ──────────────────────────────────────────── */
+
+.case-selection__card {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  background: var(--color-void);
+  cursor: pointer;
+  transition: all 300ms ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 420px;
+}
+
+.case-selection__card:hover {
+  border-color: var(--card-accent, var(--color-crimson));
+  box-shadow:
+    0 0 60px color-mix(in srgb, var(--card-accent, var(--color-crimson)) 60%, transparent),
+    0 0 120px color-mix(in srgb, var(--card-accent, var(--color-crimson)) 10%, transparent);
+  transform: scale(0.98);
+}
+
+.case-selection__card:active {
+  transform: scale(0.98);
+}
+
+/* ── Top Accent Strip ──────────────────────────────────────────────── */
+
+.case-selection__card-strip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  transition: width 300ms ease;
+}
+
+.case-selection__card:hover .case-selection__card-strip {
+  box-shadow: 0 0 12px color-mix(in srgb, var(--card-accent, var(--color-crimson)) 40%, transparent);
+}
+
+/* ── Case Number Badge ─────────────────────────────────────────────── */
+
+.case-selection__card-badge {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--card-accent, var(--color-gold));
+  letter-spacing: 0.7em;
+}
+
+/* ── ZONE 1: Top ───────────────────────────────────────────────────── */
+
+.case-selection__card-zone1 {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.case-selection__card-type {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: color-mix(in srgb, var(--card-accent, var(--color-crimson)) 50%, transparent);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  padding: 24px 28px 0;
+}
+
+/* ── ZONE 2: Middle ────────────────────────────────────────────────── */
+
+.case-selection__card-zone2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px 28px;
+}
+
+/* ── Card Title ────────────────────────────────────────────────────── */
+
+.case-selection__card-title {
+  margin: 0;
+  /* Title font set inline */
+}
+
+/* ── Setting Tag ───────────────────────────────────────────────────── */
+
+.case-selection__card-setting {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: var(--space-2);
+}
+
+/* ── Divider ───────────────────────────────────────────────────────── */
+
+.case-selection__card-divider {
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ── Victim Row ────────────────────────────────────────────────────── */
+
+.case-selection__card-victim-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin-top: 6px;
+}
+
+.case-selection__card-victim-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-crimson);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.case-selection__card-victim-text {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ── ZONE 3: Bottom ────────────────────────────────────────────────── */
+
+.case-selection__card-zone3 {
+  padding: 0 28px 28px;
+}
+
+/* ── Micro-stat chips ──────────────────────────────────────────────── */
+
+.case-selection__card-chips {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.case-selection__card-chip {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: rgba(10, 10, 10, 0.4);
+  border: 1px solid #1E293B;
+  border-radius: var(--radius-lg);
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.case-selection__card-chip-val {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.case-selection__card-chip-val--muted {
+  color: #475569 !important;
+}
+
+.case-selection__card-chip-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── Full-width CTA Button ─────────────────────────────────────────── */
+
+.case-selection__card-btn {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--card-accent, var(--color-crimson)) 50%, transparent);
+  color: var(--card-accent, var(--color-crimson));
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  padding: 10px var(--space-4);
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  transition: all 200ms ease;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.case-selection__card-btn:hover {
+  background: color-mix(in srgb, var(--card-accent, var(--color-crimson)) 10%, transparent);
+}
+
+/* ── Resume Button ─────────────────────────────────────────────────── */
+
+.case-selection__card-resume {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  background: transparent;
+  border: 1px solid #1E293B;
+  color: #64748B;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  padding: 6px var(--space-3);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all 200ms ease;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.case-selection__card-resume:hover {
+  border-color: color-mix(in srgb, var(--card-accent, var(--color-crimson)) 30%, transparent);
+  color: var(--card-accent, #94A3B8);
+}
+
+/* ── Responsive ────────────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .case-selection__grid {
+    flex-direction: column;
+    padding: var(--space-2) var(--space-4) var(--space-8);
+  }
+
+  .case-selection__hero {
+    padding: 36px var(--space-4);
+  }
+
+  .case-selection__hero-title span {
+    font-size: 2.8rem !important;
+  }
+
+  .case-selection__card {
+    min-height: auto;
+  }
+}
+

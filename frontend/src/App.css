@@ -1,0 +1,135 @@
+/* ── App Layout ───────────────────────────────────────────────────── */
+
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--color-void);
+  font-family: var(--font-body);
+}
+
+/* ── Global Nav Bar ──────────────────────────────────────────────── */
+
+.app-layout__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.app-layout__nav-title {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+}
+
+.app-layout__nav-spacer {
+  /* Matches BackButton width to keep title centered */
+  width: 120px;
+}
+
+/* ── Case Info Strip ─────────────────────────────────────────────── */
+
+.app-layout__case-strip {
+  background: #0A0E1A;
+  border-bottom: 1px solid #1E293B;
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.app-layout__case-strip-title {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--accent, var(--color-crimson));
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.app-layout__case-strip-status {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── Content row (below strip) ───────────────────────────────────── */
+
+.app-layout__content {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+/* ── Left column (60%) ───────────────────────────────────────────── */
+.app-layout__left {
+  flex: 0 0 60%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Suspect cards zone ──────────────────────────────────────────── */
+
+.app-layout__suspect-zone {
+  padding: 12px 16px;
+  border-bottom: 1px solid #1E293B;
+  flex-shrink: 0;
+}
+
+/* Chat fills remaining space */
+.app-layout__chat {
+  flex: 1;
+  min-height: 0;
+}
+
+/* Arrest overlay — covers left column */
+.app-layout__arrest-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+/* ── Right column (40%) ──────────────────────────────────────────── */
+.app-layout__right {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4) var(--space-4) var(--space-4) 0;
+  position: relative;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .app-layout {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .app-layout__left {
+    flex: none;
+    height: 65vh;
+  }
+
+  .app-layout__right {
+    flex: none;
+    padding: 0 var(--space-4) var(--space-4);
+    height: 35vh;
+  }
+}

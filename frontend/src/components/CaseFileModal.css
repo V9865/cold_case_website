@@ -1,0 +1,345 @@
+/* ── CaseFileModal — bottom-sheet case dossier ────────────────────── */
+
+/* ── Overlay ─────────────────────────────────────────────────────── */
+.cfm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(6, 10, 24, 0.9);
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.cfm-overlay--visible {
+  opacity: 1;
+}
+
+/* ── Modal panel ─────────────────────────────────────────────────── */
+.cfm-modal {
+  width: 100%;
+  max-width: 56rem; /* ~896px / max-w-4xl */
+  max-height: 90vh;
+  overflow-y: auto;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  background: #0F172A;
+  border-top: 1px solid #1E293B;
+  border-left: 1px solid #1E293B;
+  border-right: 1px solid #1E293B;
+  transform: translateY(100%);
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #334155 transparent;
+}
+
+.cfm-modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cfm-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cfm-modal::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+
+.cfm-modal--visible {
+  transform: translateY(0);
+}
+
+/* ── Drag handle ─────────────────────────────────────────────────── */
+.cfm-modal__handle {
+  width: 40px;
+  height: 4px;
+  background: #334155;
+  border-radius: 9999px;
+  margin: 12px auto 0;
+}
+
+/* ── Back button row ─────────────────────────────────────────────── */
+.cfm-modal__back-row {
+  padding: 12px 32px 0;
+}
+
+/* ── Header strip (accent colored) ───────────────────────────────── */
+.cfm-modal__header {
+  background: var(--accent, #DC2626);
+  padding: 16px 32px;
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cfm-modal__header-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
+
+.cfm-modal__header-id {
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* ── Case title row ──────────────────────────────────────────────── */
+.cfm-modal__title-row {
+  padding: 24px 32px 8px;
+}
+
+.cfm-modal__setting {
+  display: block;
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  color: #64748B;
+  margin-top: 4px;
+}
+
+/* ── Two column layout ───────────────────────────────────────────── */
+.cfm-modal__columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 16px 32px;
+}
+
+/* ── Section labels (reused) ─────────────────────────────────────── */
+.cfm-modal__section-label {
+  display: block;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--accent, #DC2626);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-bottom: 12px;
+}
+
+/* ── Victim report rows ─────────────────────────────────────────── */
+.cfm-modal__victim-rows {
+  display: flex;
+  flex-direction: column;
+}
+
+.cfm-modal__victim-row {
+  display: flex;
+  gap: 12px;
+  border-bottom: 1px solid #1E293B;
+  padding: 10px 0;
+}
+
+.cfm-modal__victim-row:last-child {
+  border-bottom: none;
+}
+
+.cfm-modal__victim-row-label {
+  width: 7rem;
+  flex-shrink: 0;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cfm-modal__victim-row-value {
+  flex: 1;
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  color: #CBD5E1;
+}
+
+/* ── Briefing text ───────────────────────────────────────────────── */
+.cfm-modal__briefing {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  color: #94A3B8;
+  line-height: 1.75;
+  margin: 16px 0 0;
+}
+
+/* ── Evidence list ───────────────────────────────────────────────── */
+.cfm-modal__evidence-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.cfm-modal__evidence-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.cfm-modal__evidence-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent, #DC2626);
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+
+.cfm-modal__evidence-text {
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  color: #94A3B8;
+  line-height: 1.5;
+}
+
+/* ── Suspects section ────────────────────────────────────────────── */
+.cfm-modal__suspects-section {
+  padding: 16px 32px;
+  border-top: 1px solid #1E293B;
+}
+
+.cfm-modal__suspects-section .cfm-modal__section-label {
+  margin-bottom: 16px;
+}
+
+.cfm-modal__suspects-row {
+  display: flex;
+  gap: 16px;
+}
+
+/* ── Suspect card ────────────────────────────────────────────────── */
+.cfm-modal__suspect-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: #060A18;
+  border: 1px solid #1E293B;
+  border-radius: 12px;
+  padding: 16px;
+  transition: border-color 200ms ease, background 200ms ease;
+}
+
+.cfm-modal__suspect-card:hover {
+  border-color: #334155;
+  background: #0A0E1A;
+}
+
+.cfm-modal__suspect-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #1B2938;
+  border: 2px solid #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #F1F5F9;
+}
+
+.cfm-modal__suspect-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #F1F5F9;
+  margin-top: 12px;
+}
+
+.cfm-modal__suspect-role {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: #64748B;
+  margin-top: 2px;
+}
+
+.cfm-modal__suspect-status {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--accent, #DC2626);
+  opacity: 0.7;
+  margin-top: 8px;
+  letter-spacing: 0.05em;
+}
+
+/* ── Bottom bar ──────────────────────────────────────────────────── */
+.cfm-modal__bottom-bar {
+  position: sticky;
+  bottom: 0;
+  background: #0F172A;
+  border-top: 1px solid #1E293B;
+  padding: 20px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cfm-modal__bottom-hint {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: #475569;
+}
+
+.cfm-modal__begin-btn {
+  background: var(--accent, #DC2626);
+  color: #ffffff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 200ms ease;
+  letter-spacing: 0.05em;
+}
+
+.cfm-modal__begin-btn:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 24px rgba(220, 38, 38, 0.3);
+}
+
+.cfm-modal__begin-btn:active {
+  transform: scale(0.97);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .cfm-modal__columns {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px 20px;
+  }
+
+  .cfm-modal__header,
+  .cfm-modal__title-row,
+  .cfm-modal__suspects-section,
+  .cfm-modal__bottom-bar {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .cfm-modal__suspects-row {
+    flex-direction: column;
+  }
+
+  .cfm-modal__bottom-bar {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .cfm-modal__begin-btn {
+    width: 100%;
+  }
+}

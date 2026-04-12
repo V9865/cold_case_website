@@ -1,0 +1,51 @@
+/* ── DetectiveBadge ──────────────────────────────────────────────── */
+
+.detective-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: default;
+}
+
+/* ── Pulse ring (visible on hover) ───────────────────────────────── */
+
+.detective-badge__ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  pointer-events: none;
+  box-shadow: 0 0 0 0 transparent;
+  transition: box-shadow 0.2s ease, opacity 0.2s ease;
+  opacity: 0;
+}
+
+.detective-badge:hover .detective-badge__ring {
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent, #DC2626) 40%, transparent);
+  opacity: 1;
+}
+
+/* ── SVG ─────────────────────────────────────────────────────────── */
+
+.detective-badge__svg {
+  display: block;
+  flex-shrink: 0;
+  transition: filter 0.2s ease;
+}
+
+.detective-badge:hover .detective-badge__svg {
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--accent, #DC2626) 50%, transparent));
+}
+
+/* ── Label ────────────────────────────────────────────────────────── */
+
+.detective-badge__label {
+  font-family: var(--font-mono, 'Space Mono', monospace);
+  font-size: 11px;
+  line-height: 1;
+  color: #64748B;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  user-select: none;
+}

@@ -1,0 +1,46 @@
+/* ── BackButton ──────────────────────────────────────────────────── */
+
+.back-btn {
+  cursor: pointer;
+  display: inline-flex;
+}
+
+.back-btn__button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+/* ── Icon ─────────────────────────────────────────────────────────── */
+
+.back-btn__icon {
+  color: #64748B;
+  transition: color 150ms ease;
+  flex-shrink: 0;
+}
+
+.back-btn:hover .back-btn__icon {
+  color: var(--accent, #DC2626);
+}
+
+/* ── Label ────────────────────────────────────────────────────────── */
+
+.back-btn__label {
+  font-family: var(--font-mono, 'Space Mono', monospace);
+  font-size: var(--text-xs, 11px);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #64748B;
+  transition: color 150ms ease;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.back-btn:hover .back-btn__label {
+  color: var(--accent, #DC2626);
+}

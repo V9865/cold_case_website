@@ -1,0 +1,23 @@
+BELLAGIO BACKSTAGE AREA — TECHNICAL REPORT
+Prepared for: Las Vegas Metropolitan Police Department
+
+The Bellagio fountain show backstage area consists of three main zones:
+1. The rehearsal stage and dressing rooms (Ground Level)
+2. The fountain control room (Sub-Level 1)
+3. The HVAC and mechanical plant room (Sub-Level 2)
+
+The fountain control room is a sealed, climate-controlled space measuring 12x8 meters.
+It houses the fountain sequencing computers, audio mixing boards, and lighting control panels.
+The room has one main entrance (keycard-locked steel door) and one maintenance hatch
+leading to the mechanical plant room below.
+
+The ventilation system for the control room is managed by an independent HVAC zone (Zone C).
+The external HVAC control panel is located in the backstage corridor, 15 meters from the
+control room door. It can be manually overridden with a physical switch.
+
+The main door has an emergency lock feature that can be activated from inside the room
+or remotely via the technical director's admin console.
+
+Security cameras cover the backstage corridor, the rehearsal stage entrance, and the
+parking garage access. The control room interior has no camera coverage.
+Camera feeds are stored on a local NVR server accessible from the IT office on Level 2.
