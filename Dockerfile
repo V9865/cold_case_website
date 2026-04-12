@@ -12,7 +12,10 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install Python deps first (cached layer)
+# Install CPU-only PyTorch FIRST (avoids 2GB+ of CUDA/nvidia bloat)
+RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
+
+# Install remaining Python deps (cached layer)
 COPY backend/requirements.txt ./requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
@@ -22,7 +25,7 @@ COPY backend/ ./
 # Copy built frontend into backend as ./dist
 COPY --from=frontend-build /app/frontend/dist ./dist
 
-# Expose the port (Render, Railway, etc. set PORT env var)
+# Expose the port (Render sets PORT env var)
 ENV PORT=8000
 EXPOSE 8000
 
