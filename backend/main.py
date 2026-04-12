@@ -102,9 +102,16 @@ async def ws_interrogate(websocket: WebSocket):
         while True:
             data = await websocket.receive_json()
             case_id = str(data.get('case_id', ''))
-            suspect_name = data['suspect_name']
-            message = data['message']
+            suspect_name = data.get('suspect_name')
+            message = data.get('message')
             found_ids = data.get('found_clue_ids', [])
+
+            if not suspect_name or not message:
+                await websocket.send_json({
+                    'type': 'error',
+                    'message': 'Missing required fields: suspect_name, message',
+                })
+                continue
 
             # Normalise case_id: accept numeric (1,2,3) or string ('case001',...)
             if case_id.isdigit():
