@@ -62,7 +62,7 @@ def get_or_create_agent(
 
     if session_key not in AGENT_SESSIONS:
         llm = ChatGroq(
-            model='llama-3.3-70b-versatile',
+            model='llama-3.1-8b-instant',
             api_key=os.getenv('GROQ_API_KEY'),
             streaming=True,
         )
