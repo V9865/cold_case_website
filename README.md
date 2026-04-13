@@ -133,17 +133,6 @@ Once you're confident, click the **MAKE ARREST** button in the clue panel. Selec
 
 ## 🧠 Game Mechanics Explained
 
-### 🎭 Emotional State System
-
-Each suspect has an emotional state that evolves based on what you say. Their state affects how they respond:
-
-| State | Behavior | How to Trigger |
-|-------|----------|----------------|
-| 😐 **CALM** | Composed, measured responses. In control. | Default starting state |
-| 😰 **DEFENSIVE** | Shorter, evasive answers. Guarded body language. | Mention sensitive keywords (e.g., specific times, locations, evidence) |
-| 😤 **BREAKING** | Inconsistencies creep in. Composure is slipping. Cracks are visible. | Press harder with confrontational evidence while they're DEFENSIVE |
-
-> **Tip:** The state transitions are one-directional — once a suspect goes DEFENSIVE, they can't go back to CALM. Keep pushing to get them to BREAKING.
 
 ### 📊 Suspicion Meter
 
@@ -297,91 +286,6 @@ cold-case-project-main/
                                    │  └──────────────┘  │
                                    └──────────────────┘
 ```
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- **Node.js** 18+ and **npm**
-- **Python** 3.11+
-- A **Groq API key** — get one free at [console.groq.com](https://console.groq.com)
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/vijaysimhareddy-g/cold-case-deploy.git
-cd cold-case-deploy
-```
-
-### 2. Set Up the Backend
-
-```bash
-cd backend
-
-# Create a virtual environment
-python -m venv venv
-source venv/bin/activate        # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Create your environment file
-cp ../.env.example .env
-# Edit .env and add your GROQ_API_KEY
-
-# Initialize the RAG vector database
-python rag/setup_db.py
-
-# Start the backend server
-python main.py
-```
-
-The backend will start on `http://localhost:8000`.
-
-### 3. Set Up the Frontend
-
-```bash
-cd frontend
-
-# Install dependencies
-npm install
-
-# Start the dev server
-npm run dev
-```
-
-The frontend will start on `http://localhost:5173`.
-
-### 4. Play
-
-Open your browser to `http://localhost:5173` and start investigating! 🔍
-
----
-
-## 🐳 Docker Deployment
-
-Build and run the entire application as a single container:
-
-```bash
-# Build the image
-docker build -t cold-case-vegas .
-
-# Run with your Groq API key
-docker run -p 8000:8000 -e GROQ_API_KEY=your_key_here cold-case-vegas
-```
-
-Open `http://localhost:8000` — the backend serves both the API and the built frontend.
-
----
-
-## 🔑 Environment Variables
-
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `GROQ_API_KEY` | ✅ Yes | — | Your Groq API key for LLM inference |
-| `PORT` | No | `8000` | Port for the backend server |
 
 ---
 
