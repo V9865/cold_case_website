@@ -301,16 +301,19 @@ cold-case-project-main/
 
 ---
 
-## 📜 License
-
-This project is for educational and demonstration purposes.
-
----
-
 <p align="center">
   <strong>🎰 Every suspect has a story. Only one of them is lying about murder. 🎰</strong>
 </p>
 
 <p align="center">
   <em>Built with LangChain · Groq · React · FastAPI · ChromaDB</em>
+</p>
+
+---
+
+<h3 align="center">TEAM : CLAUDE CRUSHERS</h3>
+
+<p align="center">
+  <strong>TEAM MEMBERS:</strong><br/>
+  B.RITHWIK · VARSHITH · VIJAY
 </p>
