@@ -156,7 +156,8 @@ export default function App() {
   const [backendStatus, setBackendStatus] = useState(null);
 
 useEffect(() => {
-  fetch("http://20.189.76.87:8000/api/test")
+  const base = import.meta.env.VITE_API_URL || '';
+  fetch(`${base}/api/test`)
     .then(res => res.json())
     .then(data => {
       console.log("Backend:", data);
@@ -253,6 +254,25 @@ useEffect(() => {
         });
 
         setIsLoading(false);
+      },
+      // onError — handle backend errors (rate limit, missing fields, etc.)
+      (errorData) => {
+        const suspect = activeSuspectRef.current;
+        const errorMsg = `⚠️ ${errorData.message || 'An error occurred. Please try again.'}`;
+        if (suspect) {
+          setMessages((prev) => {
+            const list = [...(prev[suspect] || [])];
+            const last = list[list.length - 1];
+            // Replace the empty streaming message with the error
+            if (last && last.role === 'suspect' && last.isStreaming) {
+              list[list.length - 1] = { ...last, text: errorMsg, isStreaming: false };
+            } else {
+              list.push({ role: 'suspect', text: errorMsg });
+            }
+            return { ...prev, [suspect]: list };
+          });
+        }
+        setIsLoading(false);
       }
     );
 
@@ -338,12 +358,7 @@ useEffect(() => {
       }));
 
       // Send the case_id string (e.g. 'case001') to the backend
-     wsRef.current?.send(JSON.stringify({
-  case_id: selectedCase.caseId,
-  suspect_name: activeSuspect,
-  message: text,
-  found_clue_ids: foundClueIds
-}));
+      wsRef.current?.send(selectedCase.caseId, activeSuspect, text, foundClueIds);
     },
     [activeSuspect, selectedCase, foundClueIds]
   );

@@ -6,22 +6,29 @@ const BASE_URL = import.meta.env.VITE_API_URL || '';
  * @param {(meta: object) => void}  onMeta   – called on metadata messages (clues, suspicion, etc.)
  * @returns {{ send: Function, close: Function }}
  */
-export function createInterrogationSocket(onToken, onMeta) {
+export function createInterrogationSocket(onToken, onMeta, onError) {
   const wsBase = BASE_URL
     ? BASE_URL.replace(/^http/, 'ws')
     : `${window.location.protocol === 'https:' ? 'wss:' : 'ws:'}//${window.location.host}`;
   const wsUrl = wsBase + '/ws/interrogate';
+  console.log('[WS] Connecting to:', wsUrl);
   const ws = new WebSocket(wsUrl);
 
+  ws.onopen = () => console.log('[WS] Connection established');
   ws.onerror = (err) => console.error('[WS] error:', err);
+  ws.onclose = (event) => console.warn('[WS] Connection closed:', event.code, event.reason);
 
   ws.onmessage = (event) => {
     try {
       const data = JSON.parse(event.data);
+      console.log('[WS] Received:', data.type, data);
       if (data.type === 'token') {
         onToken(data.data);
       } else if (data.type === 'meta') {
         onMeta(data);
+      } else if (data.type === 'error') {
+        console.error('[WS] Backend error:', data.message, data.error_type);
+        if (onError) onError(data);
       }
     } catch (e) {
       console.error('[WS] failed to parse message:', e);
