@@ -321,3 +321,11 @@ cold-case-project-main/
   <strong>TEAM MEMBERS:</strong><br/>
   B.RITHWIK · VARSHITH · VIJAY
 </p>
+
+---
+
+> [!WARNING]
+> ### ⚠️ Model Availability & Expiration Notice
+> If this project is being viewed or tested at a later date, the underlying Large Language Models (LLMs) used by the application (such as Groq endpoints) may have been deprecated, updated, or expired by the provider, resulting in chat or interrogation errors.
+> 
+> To update the model without code changes, set the `GROQ_MODEL` environment variable (e.g. in your Render dashboard or `.env` file) to any currently active model ID supported by Groq (such as `llama-3.3-70b-versatile`).

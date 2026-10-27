@@ -8,7 +8,7 @@ from case_registry import get_case
 load_dotenv()
 
 llm = ChatGroq(
-    model='llama-3.1-8b-instant',
+    model=os.getenv('GROQ_MODEL', 'llama-3.3-70b-versatile'),
     api_key=os.getenv('GROQ_API_KEY')
 )
 
