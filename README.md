@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/STATUS-LIVE-brightgreen?style=for-the-badge" />
+  <a href="https://cold-case-deploy.onrender.com/"><img src="https://img.shields.io/badge/STATUS-LIVE-brightgreen?style=for-the-badge" alt="Live Status" /></a>
   <img src="https://img.shields.io/badge/CASES-3-critical?style=for-the-badge" />
   <img src="https://img.shields.io/badge/SUSPECTS-9-orange?style=for-the-badge" />
   <img src="https://img.shields.io/badge/AI%20POWERED-LLM-blueviolet?style=for-the-badge" />
@@ -16,6 +16,10 @@
 <p align="center">
   Step into the shoes of a homicide detective. Interrogate AI-driven suspects in real time.<br/>
   Uncover clues. Spot the lies. Make the arrest. Solve the case — or let a killer walk free.
+</p>
+
+<p align="center">
+  🎮 <strong>Live Demo:</strong> <a href="https://cold-case-deploy.onrender.com/"><strong>https://cold-case-deploy.onrender.com/</strong></a>
 </p>
 
 ---

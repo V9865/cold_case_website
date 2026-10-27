@@ -2,7 +2,7 @@ $git = "C:\Program Files\Git\cmd\git.exe"
 
 # ══════════════════════════════════════════════════════════
 #  UPDATE THIS with your actual GitHub repo URL:
-$REPO_URL = "https://github.com/vijaysimhareddy-g/cold-case-deploy.git"
+$REPO_URL = "https://github.com/V9865/cold_case_website.git"
 # ══════════════════════════════════════════════════════════
 
 Write-Host "=== Initializing Git ===" -ForegroundColor Cyan
